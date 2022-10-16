@@ -135,7 +135,67 @@
 		}
 		
 		</style>
+		<script>
+			function saveTeacher(username, password){
+				var teacherObject = {
+					username: username,
+					password : password
+				};
+
+				 firebase.database().ref('teacher-entries').PushChild().set(teacherObject);
+			}
 		
+			function validateTeacherForm(){
+				var x = document.forms["registerForm"]["username"].value;
+				if(x == ""){
+					alert("Username required");
+					return false;
+				}
+				var y = document.forms["registerForm"]["password"].value;
+				if(y == ""){
+					alert("Password required");
+					return false;
+				}
+				var z = document.forms["registerForm"]["psw_repeat"].value;
+				if(y != z){
+					alert("Passwords do not match");
+					return false;
+				}
+				else{
+					saveTeacher(document.forms["registerForm"][username], document.forms["registerForm"]["password"]);
+				}
+		}
+
+		function saveStudent(username, password){
+				var studentObject = {
+					username: username,
+					password : password
+				};
+
+				 firebase.database().ref('student-entries').PushChild().set(studentObject);
+			}
+		
+			function validateStudentForm(){
+				var x = document.forms["registerForm"]["username"].value;
+				if(x == ""){
+					alert("Username required");
+					return false;
+				}
+				var y = document.forms["registerForm"]["password"].value;
+				if(y == ""){
+					alert("Password required");
+					return false;
+				}
+				var z = document.forms["registerForm"]["psw_repeat"].value;
+				if(y != z){
+					alert("Passwords do not match");
+					return false;
+				}
+				else{
+					saveStudent(document.forms["registerForm"][username], document.forms["registerForm"]["password"]);
+				}
+		}
+		</script>
 	</head>
 	
 	<body>
@@ -146,30 +206,31 @@
 		<br><br>
 
 		<div id="TopText">
-		<form id="NormalText">
+		<form name="registerForm" id="NormalText" onsubmit="return validateForm()" method="post" required>
 			Username <br><input type="text" name="username" style="height:2.0vw; width:25vw; font-family:Consolas; font-size: 1.5vw; color:dimgray" ><br><br>
 			Password <br><input type="text" name="password" style="height:2.0vw; width:25vw; font-family:Consolas; font-size: 1.5vw; color:dimgray"><br><br>
+			Confirm Password <br><input type="text" name="psw_repeat" style="height:2.0vw; width:25vw; font-family:Consolas; font-size: 1.5vw; color:dimgray"><br><br>
+			<br>
+			<div id="NormalText"> Are you a TEACHER or STUDENT? <br><br><br></div>
+			<button class="ButtonPurple" onclick="return validateTeacherForm()"> 
+				Teacher
+			</button>
+			<button class="ButtonGreen" onclick="return validateStudentForm();"> 
+				Student
+			</button>
 		</form>
-		<br>
-		<div id="NormalText"> Are you a TEACHER or STUDENT? <br><br><br></div>
-		<button class="ButtonPurple" onclick="window.location.href='mainmenu.html';"> 
-			<form action="mainmenu.html">
-			Teacher
-		</button>
-		<button class="ButtonGreen" onclick="window.location.href='mainmenu.html';"> 
-			<form action="mainmenu.html">
-			Student
-		</button>
 		<br><br>
 		<button class="ButtonRed" onclick="window.location.href='index.html';"> 
 			<form action="index.html">
 			Cancel
 		</button>
+
 		<button class="ButtonBlue" onclick="window.location.href='login.html';"> 
 			<form action="login.html">
 			Login
 		</button>
 		<br><br>
+
 		</div>
 		
 	</body>
