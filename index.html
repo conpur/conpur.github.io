@@ -182,48 +182,45 @@
 	
 	</div> <!-- This is where the part that centers DIGITAL_DUNGEON and everything else on the page is closed. -->
 		
-	<script type="module">
+// Import the functions you need from the SDKs you need
 
-		// Import the functions you need from the SDKs you need
-	  
-		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
-	  
-		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-	  
-		// TODO: Add SDKs for Firebase products that you want to use
-	  
-		// https://firebase.google.com/docs/web/setup#available-libraries
-	  
-	  
-		// Your web app's Firebase configuration
-	  
-		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-	  
-		const firebaseConfig = {
-	  
-		  apiKey: "AIzaSyCeggyHjxE11j_JdOWPokNzeyZu9KRdJII",
-	  
-		  authDomain: "digital-dungeon-7ed2d.firebaseapp.com",
-	  
-		  projectId: "digital-dungeon-7ed2d",
-	  
-		  storageBucket: "digital-dungeon-7ed2d.appspot.com",
-	  
-		  messagingSenderId: "131380478178",
-	  
-		  appId: "1:131380478178:web:e0d9605980bb71c5dfdebb",
-	  
-		  measurementId: "G-0HRMKNQZDD"
-	  
-		};
-	  
-		// Initialize Firebase
-	  
-		const app = initializeApp(firebaseConfig);
-	  
-		const analytics = getAnalytics(app);
-	  
-	  </script>
+import { initializeApp } from "firebase/app";
+
+import { getAnalytics } from "firebase/analytics";
+
+// TODO: Add SDKs for Firebase products that you want to use
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+
+// Your web app's Firebase configuration
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyCeggyHjxE11j_JdOWPokNzeyZu9KRdJII",
+
+  authDomain: "digital-dungeon-7ed2d.firebaseapp.com",
+
+  projectId: "digital-dungeon-7ed2d",
+
+  storageBucket: "digital-dungeon-7ed2d.appspot.com",
+
+  messagingSenderId: "131380478178",
+
+  appId: "1:131380478178:web:e0d9605980bb71c5dfdebb",
+
+  measurementId: "G-0HRMKNQZDD"
+
+};
+
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+
+const analytics = getAnalytics(app);
 	
 	</body> 
 	
